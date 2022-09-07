@@ -1,9 +1,6 @@
-// import diaryData from '../../data/diaries.json';
 import diaries from '../../data/diaries';
 
 import { NonSensitiveDiaryEntry, DiaryEntry } from '../types';
-
-// const diaries: Array<DiaryEntry> = diaryData as Array<DiaryEntry>;
 
 const getEntries = (): Array<DiaryEntry> => {
   return diaries;
@@ -22,8 +19,14 @@ const addDiary = () => {
   return null;
 };
 
+const findById = (id: number): DiaryEntry | undefined => {
+  const entry = diaries.find((d) => d.id === id);
+  return entry;
+};
+
 export default {
   getEntries,
   addDiary,
-  getNonSensitiveEntries
+  getNonSensitiveEntries,
+  findById,
 };
